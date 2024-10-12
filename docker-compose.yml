@@ -1,0 +1,13 @@
+version: '3'
+services:
+  github-runner:
+    container_name: github-runner-v1
+    build: .
+    environment:
+      - RUNNER_NAME=github-runner
+      - REPO_URL=
+      - TOKEN=
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./runner-workdir:/tmp/github-runner
+    restart: always
